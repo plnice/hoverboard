@@ -85,12 +85,6 @@ class FooterRel extends PolymerElement {
         </ul>
       </div>
       {% endfor %}
-
-      <div class="col" layout vertical flex-auto wrap>
-        <div class="col-heading">{$ subscribe $}</div>
-        <span>{$ subscribeNote $}</span>
-        <subscribe-form-footer></subscribe-form-footer>
-      </div>
     `;
   }
 

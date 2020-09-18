@@ -5,9 +5,9 @@
   "scripts": {
     "build": "npm run clean && tsc && NODE_ENV=production rollup --config rollup.config.js",
     "clean": "rimraf dist out-tsc",
-    "deploy": "npm run build && NODE_ENV=production firebase deploy",
+    "deploy": "npm run build && NODE_ENV=production firebase deploy --except functions",
     "firestore:copy": "babel-node ./internals/firestore-copy-data",
-    "firestore:init": "firebase firestore:delete -r --all-collections -y && firebase functions:config:set schedule.enabled=true && firebase deploy --except hosting && babel-node ./internals/import-default-data",
+    "firestore:init": "firebase firestore:delete -r --all-collections -y && firebase functions:config:set schedule.enabled=true && firebase deploy --except hosting,functions && npx babel-node ./internals/import-default-data",
     "fix:eslint": "eslint . --ext .ts --ext .js --fix",
     "fix:prettier": "prettier . --write",
     "fix:stylelint": "stylelint \"src/components/**/*.ts\" \"src/styles/**/*.ts\" --fix",
@@ -24,6 +24,7 @@
     "watch": "concurrently --kill-others npm:watch:*"
   },
   "dependencies": {
+    "@babel/core": "^7.0.0",
     "@google-web-components/google-youtube": "^3.0.1",
     "@material/mwc-button": "^0.18.0",
     "@polymer/app-layout": "^3.1.0",
@@ -59,6 +60,8 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.11.5",
     "@firebase/testing": "^0.20.11",
     "@open-wc/building-rollup": "^1.8.0",
     "@testing-library/dom": "^7.23.0",
@@ -69,6 +72,8 @@
     "@types/polymer": "^1.2.9",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.4.2",
     "concurrently": "^5.3.0",
     "core-js": "^3.6.5",
     "deepmerge": "^4.2.2",

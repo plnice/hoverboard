@@ -2,15 +2,8 @@ import '@polymer/iron-icon';
 import { html, PolymerElement } from '@polymer/polymer';
 import '../components/about-block';
 import '../elements/about-organizer-block';
-import '../elements/featured-videos';
-import '../elements/fork-me-block';
-import '../elements/gallery-block';
-import '../elements/latest-posts-block';
-import '../elements/map-block';
 import '../elements/partners-block';
 import '../elements/speakers-block';
-import '../elements/subscribe-block';
-import '../elements/tickets-block';
 import { ReduxMixin } from '../mixins/redux-mixin';
 import { uiActions } from '../redux/actions';
 import { scrollToY } from '../utils/scrolling';
@@ -147,34 +140,8 @@ class HomePage extends ReduxMixin(PolymerElement) {
             alt="{$ title $}"
           ></plastic-image>
           <div class="info-items">
-            <div class="info-item">{$ location.city $}. {$ dates $}</div>
+            <div class="info-item">{$ dates $}</div>
             <div class="info-item">{$ heroSettings.home.description $}</div>
-          </div>
-
-          <div class="action-buttons" layout horizontal center-justified wrap>
-            <paper-button
-              class="watch-video"
-              on-click="_playVideo"
-              ga-on="click"
-              ga-event-category="video"
-              ga-event-action="watch"
-              ga-event-label="hero block - view highlights"
-            >
-              <iron-icon icon="hoverboard:movie"></iron-icon>
-              {$ viewHighlights $}
-            </paper-button>
-            <paper-button
-              on-click="_scrollToTickets"
-              ga-on="click"
-              ga-event-category="tickets"
-              ga-event-action="scroll"
-              ga-event-label="hero block - scroll to tickets"
-              primary
-              invert
-            >
-              <iron-icon icon="hoverboard:ticket"></iron-icon>
-              {$ buyTicket $}
-            </paper-button>
           </div>
 
           <div class="scroll-down" on-click="_scrollNextBlock">
@@ -245,14 +212,8 @@ class HomePage extends ReduxMixin(PolymerElement) {
       <fork-me-block></fork-me-block>
       {% endif %}
       <about-block></about-block>
-      <speakers-block></speakers-block>
-      <subscribe-block></subscribe-block>
-      <tickets-block></tickets-block>
-      <gallery-block></gallery-block>
+<!--      <speakers-block></speakers-block>-->
       <about-organizer-block></about-organizer-block>
-      <featured-videos></featured-videos>
-      <latest-posts-block></latest-posts-block>
-      <map-block></map-block>
       <partners-block></partners-block>
       <footer-block></footer-block>
     `;

@@ -76,57 +76,57 @@ class SchedulePage extends SessionsHoC(SpeakersHoC(ReduxMixin(PolymerElement))) 
       >
         <div class="hero-title">{$ heroSettings.schedule.title $}</div>
         <p class="hero-description">{$ heroSettings.schedule.description $}</p>
-        <sticky-element slot="bottom" active="[[active]]">
-          <header-bottom-toolbar></header-bottom-toolbar>
-        </sticky-element>
+<!--        <sticky-element slot="bottom" active="[[active]]">-->
+<!--          <header-bottom-toolbar></header-bottom-toolbar>-->
+<!--        </sticky-element>-->
       </hero-block>
 
-      <paper-progress indeterminate hidden$="[[contentLoaderVisibility]]"></paper-progress>
+<!--      <paper-progress indeterminate hidden$="[[contentLoaderVisibility]]"></paper-progress>-->
 
-      <filter-menu filters="[[_filters]]" selected="[[_selectedFilters]]"></filter-menu>
+<!--      <filter-menu filters="[[_filters]]" selected="[[_selectedFilters]]"></filter-menu>-->
 
-      <div class="container">
-        <content-loader
-          card-padding="15px"
-          card-margin="16px 0"
-          card-height="140px"
-          avatar-size="0"
-          avatar-circle="0"
-          title-top-position="20px"
-          title-height="42px"
-          title-width="70%"
-          load-from="-20%"
-          load-to="80%"
-          blur-width="300px"
-          items-count="{$ contentLoaders.schedule.itemsCount $}"
-          hidden$="[[contentLoaderVisibility]]"
-          layout
-        >
-        </content-loader>
+<!--      <div class="container">-->
+<!--        <content-loader-->
+<!--          card-padding="15px"-->
+<!--          card-margin="16px 0"-->
+<!--          card-height="140px"-->
+<!--          avatar-size="0"-->
+<!--          avatar-circle="0"-->
+<!--          title-top-position="20px"-->
+<!--          title-height="42px"-->
+<!--          title-width="70%"-->
+<!--          load-from="-20%"-->
+<!--          load-to="80%"-->
+<!--          blur-width="300px"-->
+<!--          items-count="{$ contentLoaders.schedule.itemsCount $}"-->
+<!--          hidden$="[[contentLoaderVisibility]]"-->
+<!--          layout-->
+<!--        >-->
+<!--        </content-loader>-->
 
-        <iron-pages attr-for-selected="name" selected="[[subRoute]]" selected-attribute="active">
-          <template is="dom-repeat" items="[[schedule]]" as="day">
-            <schedule-day
-              name$="[[day.date]]"
-              day="[[day]]"
-              user="[[user]]"
-              featured-sessions="[[featuredSessions]]"
-              selected-filters="[[_selectedFilters]]"
-              viewport="[[viewport]]"
-              query-params="[[queryParams]]"
-            ></schedule-day>
-          </template>
-          <my-schedule
-            name="my-schedule"
-            schedule="[[schedule]]"
-            user="[[user]]"
-            featured-sessions="[[featuredSessions]]"
-            selected-filters="[[_selectedFilters]]"
-            viewport="[[viewport]]"
-            query-params="[[queryParams]]"
-          ></my-schedule>
-        </iron-pages>
-      </div>
+<!--        <iron-pages attr-for-selected="name" selected="[[subRoute]]" selected-attribute="active">-->
+<!--          <template is="dom-repeat" items="[[schedule]]" as="day">-->
+<!--            <schedule-day-->
+<!--              name$="[[day.date]]"-->
+<!--              day="[[day]]"-->
+<!--              user="[[user]]"-->
+<!--              featured-sessions="[[featuredSessions]]"-->
+<!--              selected-filters="[[_selectedFilters]]"-->
+<!--              viewport="[[viewport]]"-->
+<!--              query-params="[[queryParams]]"-->
+<!--            ></schedule-day>-->
+<!--          </template>-->
+<!--          <my-schedule-->
+<!--            name="my-schedule"-->
+<!--            schedule="[[schedule]]"-->
+<!--            user="[[user]]"-->
+<!--            featured-sessions="[[featuredSessions]]"-->
+<!--            selected-filters="[[_selectedFilters]]"-->
+<!--            viewport="[[viewport]]"-->
+<!--            query-params="[[queryParams]]"-->
+<!--          ></my-schedule>-->
+<!--        </iron-pages>-->
+<!--      </div>-->
 
       <footer-block></footer-block>
     `;

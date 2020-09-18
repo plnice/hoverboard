@@ -83,11 +83,6 @@ class PartnersBlock extends ReduxMixin(PolymerElement) {
             </template>
           </div>
         </template>
-
-        <paper-button class="cta-button animated icon-right" on-click="_addPotentialPartner">
-          <span>{$ partnersBlock.button $}</span>
-          <iron-icon icon="hoverboard:arrow-right-circle"></iron-icon>
-        </paper-button>
       </div>
     `;
   }
